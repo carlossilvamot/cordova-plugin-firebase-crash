@@ -27,7 +27,7 @@
     "analytics",
     "crashlytics",
     "ecosystem:cordova",
-    "cordova-android",
+    "cordova-android"
   ],
   "scripts": {
     "preversion": "npm run docs && rm -rf docs",
