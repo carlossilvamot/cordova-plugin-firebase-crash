@@ -6,7 +6,6 @@
   "cordova": {
     "id": "cordova-plugin-firebase-crash",
     "platforms": [
-      "ios",
       "android"
     ]
   },
@@ -29,7 +28,6 @@
     "crashlytics",
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-ios"
   ],
   "scripts": {
     "preversion": "npm run docs && rm -rf docs",

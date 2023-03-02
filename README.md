@@ -25,7 +25,6 @@
 
 ## Supported Platforms
 
-- iOS
 - Android
 
 ## Installation
@@ -35,12 +34,6 @@
 If you get an error about CocoaPods being unable to find compatible versions, run
     
     $ pod repo update
-
-Use variables `IOS_FIREBASE_POD_VERSION`  `ANDROID_FIREBASE_BOM_VERSION` to override dependency versions for Firebase SDKs:
-
-    $ cordova plugin add cordova-plugin-firebase-crash \
-        --variable IOS_FIREBASE_POD_VERSION="9.3.0" \
-        --variable ANDROID_FIREBASE_BOM_VERSION="30.3.1"
 
 ## Disable data collection
 In some cases, you may wish to temporarily or permanently disable collection of crash data. You can set the value of variable `CRASHLYTICS_COLLECTION_ENABLED` to `false` to prevent collecting any user data:
@@ -52,7 +45,7 @@ Later you can re-enable crashlytics (for instance after getting end-user consent
 
 ### Adding required configuration files
 
-Cordova supports `resource-file` tag for easy copying resources files. Firebase SDK requires `google-services.json` on Android and `GoogleService-Info.plist` on iOS platforms.
+Cordova supports `resource-file` tag for easy copying resources files. Firebase SDK requires `google-services.json` on Android.
 
 1. Put `google-services.json` and/or `GoogleService-Info.plist` into the root directory of your Cordova project
 2. Add new tag for Android platform
@@ -63,10 +56,6 @@ Cordova supports `resource-file` tag for easy copying resources files. Firebase 
     <resource-file src="google-services.json" target="app/google-services.json" />
 </platform>
 ...
-<platform name="ios">
-    ...
-    <resource-file src="GoogleService-Info.plist" />
-</platform>
 ```
 
 This way config files will be copied on `cordova prepare` step.

@@ -13,7 +13,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <engines>
         <engine name="cordova" version=">=10.0.0"/>
         <engine name="cordova-android" version=">=11.0.0"/>
-        <engine name="cordova-ios" version=">=6.0.0"/>
     </engines>
 
     <js-module src="www/FirebaseCrash.js" name="FirebaseCrash">
@@ -21,40 +20,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     </js-module>
 
     <preference name="CRASHLYTICS_COLLECTION_ENABLED" default="true" />
-
-    <platform name="ios">
-        <preference name="IOS_FIREBASE_POD_VERSION" default="9.3.0" />
-
-        <hook type="after_plugin_install" src="hooks/ios/after_plugin_install.js" />
-        <hook type="before_plugin_uninstall" src="hooks/ios/before_plugin_uninstall.js" />
-
-        <config-file parent="/*" target="config.xml">
-            <feature name="FirebaseCrash">
-                <param name="ios-package" value="FirebaseCrashPlugin" />
-                <param name="onload" value="true" />
-            </feature>
-        </config-file>
-
-        <!--
-            use a bit hacky method to set boolean value as a string:
-            https://developer.apple.com/documentation/foundation/nsstring/1409420-boolvalue?preferredLanguage=occ
-        -->
-        <config-file target="*-Info.plist" parent="FirebaseCrashlyticsCollectionEnabled">
-            <string>$CRASHLYTICS_COLLECTION_ENABLED</string>
-        </config-file>
-
-        <header-file src="src/ios/FirebaseCrashPlugin.h" />
-        <source-file src="src/ios/FirebaseCrashPlugin.m" />
-
-        <podspec>
-            <config>
-                <source url="https://cdn.cocoapods.org/"/>
-            </config>
-            <pods use-frameworks="true">
-                <pod name="Firebase/Crashlytics" spec="$IOS_FIREBASE_POD_VERSION" />
-            </pods>
-        </podspec>
-    </platform>
 
     <platform name="android">
         <preference name="ANDROID_FIREBASE_BOM_VERSION" default="30.3.1" />
